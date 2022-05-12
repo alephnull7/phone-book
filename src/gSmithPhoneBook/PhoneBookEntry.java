@@ -229,6 +229,7 @@ public class PhoneBookEntry {
 	} // end of getCompletePhoneNumber
 	
 	public void printString() {
+		System.out.println(getID());
 		System.out.println(getCompleteName());
 		System.out.println(getStreetAddress());
 		System.out.println(getCityAndState());
@@ -260,4 +261,4 @@ public class PhoneBookEntry {
 		
 	} // end of getIntLength
 
-}
+} // end of PhoneBookEntry class

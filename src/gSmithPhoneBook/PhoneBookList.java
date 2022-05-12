@@ -6,23 +6,26 @@ package gSmithPhoneBook;
 public class PhoneBookList {
 	private PhoneBookNode front;
 	private int length;
+	private String name;
 	
 	// constructor with a front node
-	public PhoneBookList(PhoneBookNode frontNode) {
+	public PhoneBookList(String name, PhoneBookNode frontNode) {
 		this.front = frontNode;
 		this.length = 1;
+		this.name = name;
 		
 	} // end of constructor with front node
 	
 	// empty constructor
-	public PhoneBookList() {
+	public PhoneBookList(String name) {
 		this.front = null;
 		this.length = 0;
+		this.name = name;
 		
 	} // end of empty constructor
 	
 	// copy constructor
-	public PhoneBookList(PhoneBookList currentList) {
+	public PhoneBookList(String name, PhoneBookList currentList) {
 		PhoneBookNode currentNode = currentList.front;
 		
 		// every node from currentList is being copied and added,
@@ -32,6 +35,8 @@ public class PhoneBookList {
 			currentNode = currentNode.next;
 			
 		}
+		
+		this.name = name;
 		
 	} // end of copy constructor
 	
@@ -283,6 +288,8 @@ public class PhoneBookList {
 	} // end of completeNameBubbleSort
 	
 	public void printString() {
+		System.out.println(getName().toUpperCase() + " PHONE BOOK\n");
+		
 		PhoneBookNode currentNode = front;
 		
 		for (int index = 0; index < this.getLength(); index++) {
@@ -292,16 +299,146 @@ public class PhoneBookList {
 			
 		}
 		System.out.println();
+		System.out.println();
 		
 	} // end of printString
 	
+	public String getName() {
+		return this.name;
+		
+	} // end of getName
+	
 	public void merge(PhoneBookList otherList) {
+		// we actually need to create a "copy" of list so that
+		// we have distinct nodes (new ids)
+		PhoneBookList newList = new PhoneBookList("", otherList);
+		
 		PhoneBookNode thisEnd = this.getEnd();
-		PhoneBookNode otherFront = otherList.front;
+		PhoneBookNode otherFront = newList.front;
 		
 		thisEnd.next = otherFront;
-		this.length += otherList.length;
+		this.length += newList.length;
 		
 	} // end of merge
 	
-}
+	public void moveByID(PhoneBookList otherList, int nodeID) {
+		PhoneBookNode movedNode = otherList.getNodeFromID(nodeID);
+		if (movedNode != null) {
+			otherList.remove(otherList.getIndexFromID(nodeID));
+			this.add(movedNode);
+			
+		} else {
+			System.out.println("Phone book entry not found. No entry to move.\n");
+			
+		}
+		
+	} // end of moveByID
+	
+	public void moveByIndex(PhoneBookList otherList, int index) {
+		PhoneBookNode movedNode = otherList.getNode(index);
+		if (movedNode != null) {
+			otherList.remove(index);
+			this.add(movedNode);
+			
+		} else {
+			System.out.println("Phone book entry not found. No entry to move.\n");
+			
+		}
+		
+	} // end of moveByIndex
+	
+	public PhoneBookNode getNodeFromID(int id) {
+		PhoneBookNode currentNode = this.front;
+		
+		while (currentNode != null) {
+			if (currentNode.getID() == id) {
+				return currentNode;
+				
+			} else {
+				currentNode = currentNode.next;
+				
+			} // end of if/else
+			
+		} // end of while
+		return currentNode;
+		
+	} // end of getNodeFromID
+	
+	public int getIndexFromID(int id) {
+		PhoneBookNode currentNode = this.front;
+		
+		int index = 0;
+		while (currentNode != null) {
+			if (currentNode.getID() == id) {
+				return index;
+				
+			} else {
+				currentNode = currentNode.next;
+				index++;
+				
+			} // end of if/else
+			
+		} // end of while
+		return -1; // out of bounds index
+		
+	} // end of getIndexFromID
+	
+	public void modifyByID(int nodeID, String firstName, String lastName, String streetAddress, 
+			String city, String stateAbbrev, Integer phoneAreaCode, Integer phoneNumber) {
+		
+		PhoneBookNode modifiedNode = getNodeFromID(nodeID);
+		modifyNode(modifiedNode, firstName, lastName, streetAddress, city, stateAbbrev, phoneAreaCode, phoneNumber);
+		
+	} // end of modifyByID
+	
+	public void modifyByIndex(int index, String firstName, String lastName, String streetAddress, 
+			String city, String stateAbbrev, Integer phoneAreaCode, Integer phoneNumber) {
+		
+		PhoneBookNode modifiedNode = getNode(index);
+		modifyNode(modifiedNode, firstName, lastName, streetAddress, city, stateAbbrev, phoneAreaCode, phoneNumber);
+		
+	} // end of modifyByIndex
+	
+	// modify each field corresponding to an input parameter if the parameter is not null
+	// we use the wrapper class Integer so that null is valid for phoneAreaCode and phoneNumber parameters
+	public void modifyNode(PhoneBookNode node, String firstName, String lastName, String streetAddress, 
+			String city, String stateAbbrev, Integer phoneAreaCode, Integer phoneNumber) {
+		
+		if (firstName != null) {
+			node.setFirstName(firstName);
+			
+		}
+		
+		if (lastName != null) {
+			node.setLastName(lastName);
+			
+		}
+		
+		if (streetAddress != null) {
+			node.setStreetAddress(streetAddress);
+			
+		}
+		
+		if (city != null) {
+			node.setCity(city);
+			
+		}
+		
+		if (stateAbbrev != null) {
+			node.setStateAbbrev(stateAbbrev);
+			
+		}
+		
+		if (phoneAreaCode != null) {
+			node.setPhoneAreaCode(phoneAreaCode);
+			
+		}
+		
+		if (phoneNumber != null) {
+			node.setPhoneNumber(phoneNumber);
+			
+		}
+		
+	} // end of modifyNode
+
+} // end of PhoneBookList class
