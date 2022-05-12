@@ -15,12 +15,9 @@ public class PhoneBookNode extends PhoneBookEntry {
 	public PhoneBookNode(PhoneBookNode currentNode) {
 		// this is not a true copy since the id field will be different;
 		// all PhoneBookNodes are distinct
-		super(currentNode.firstName, currentNode.lastName, currentNode.streetAddress, 
+		this(currentNode.firstName, currentNode.lastName, currentNode.streetAddress, 
 				currentNode.city, currentNode.stateAbbrev.toString(), 
 				currentNode.phoneAreaCode, currentNode.phoneNumber);
-		
-		// we want this new node to initially be orphaned
-		setNext();
 		
 	} // end of copy constructor
 	
