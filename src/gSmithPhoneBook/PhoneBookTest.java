@@ -1,7 +1,7 @@
 // Class: CS 145
 // Date: 05/13/2022
 // Assignment: Assignment 2 - Phone Book
-// Reference: Chapters 1-16,
+// Reference: Chapters 1-16
 // Purpose: Test PhoneBookList class
 // IDE: Eclipse
 
