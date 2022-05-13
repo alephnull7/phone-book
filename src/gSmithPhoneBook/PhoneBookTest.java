@@ -42,6 +42,9 @@ public class PhoneBookTest {
 		washingtonList.addAlphabetically(
 				new PhoneBookNode("John", "Keller", "Somewhere", "Olympia", "WA", 564, 9876543));
 		washingtonList.printString();
+		System.out.printf("We remove an entry from the list:%n%n");
+		washingtonList.remove(3);
+		washingtonList.printString();
 		
 		System.out.printf("We see that the original lists are unchanged:%n%n");
 		bellinghamList.printString();
