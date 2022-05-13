@@ -1,3 +1,10 @@
+// Class: CS 145
+// Date: 05/13/2022
+// Assignment: Assignment 2 - Phone Book
+// Reference: Chapters 1-16
+// Purpose: Define the node class used in PhoneBookList class, and associated methods 
+// IDE: Eclipse
+
 package gSmithPhoneBook;
 
 public class PhoneBookNode extends PhoneBookEntry {
@@ -70,7 +77,7 @@ public class PhoneBookNode extends PhoneBookEntry {
 		} else {
 			return false;
 			
-		}
+		} // end of if/else
 		
 	} // end of getIsThisStringFirst
 	

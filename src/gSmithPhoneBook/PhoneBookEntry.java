@@ -1,4 +1,11 @@
+// Class: CS 145
+// Date: 05/13/2022
+// Assignment: Assignment 2 - Phone Book
+// Reference: Chapters 1-16, 
 // https://abbreviations.yourdictionary.com/articles/state-abbrev.html
+//
+// Purpose: Define the data fields used in PhoneBookNode class, and associated methods 
+// IDE: Eclipse
 
 package gSmithPhoneBook;
 
@@ -160,7 +167,7 @@ public class PhoneBookEntry {
 		} catch (IllegalArgumentException e) {
 			this.stateAbbrev = StateAbbrev.OTHER;
 			
-		}
+		} // end of try-catch
 		
 	} // end of setStateAbbrev
 	
@@ -172,7 +179,7 @@ public class PhoneBookEntry {
 			default:
 				return this.stateAbbrev.toString();
 		
-		}
+		} // end of switch-case
 		
 	} // end of getStateAbbrev
 	
@@ -189,7 +196,7 @@ public class PhoneBookEntry {
 			throw new IllegalArgumentException(
 					String.format("A phone number must be %d digits", PhoneBookEntry.phoneNumberLength));
 			
-		}
+		} // end of if/else
 		
 	} // end of setPhoneNumber
 	
@@ -211,7 +218,7 @@ public class PhoneBookEntry {
 			throw new IllegalArgumentException(
 					String.format("An area code must be %d digits", PhoneBookEntry.phoneAreaCodeLength));
 			
-		}
+		} // end of if/else
 		
 	} // end of setPhoneAreaCode
 	
@@ -255,7 +262,7 @@ public class PhoneBookEntry {
 			inputInt /= 10;
 			length++;
 			
-		} while (inputInt != 0); 
+		} while (inputInt != 0); // end of do-while
 		
 		return length;
 		

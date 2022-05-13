@@ -1,5 +1,11 @@
-// https://en.wikipedia.org/wiki/Bubble_sort,
-// https://www.geeksforgeeks.org/copy-constructor-in-java/
+// Class: CS 145
+// Date: 05/13/2022
+// Assignment: Assignment 2 - Phone Book
+// Reference: Chapters 1-16,
+// https://en.wikipedia.org/wiki/Bubble_sort
+//
+// Purpose: Implement a linked list of PhoneBookNodes 
+// IDE: Eclipse
 
 package gSmithPhoneBook;
 
@@ -34,7 +40,7 @@ public class PhoneBookList {
 			this.add(new PhoneBookNode(currentNode));
 			currentNode = currentNode.next;
 			
-		}
+		} // end of while loop
 		
 		this.name = name;
 		
@@ -51,10 +57,10 @@ public class PhoneBookList {
 			while(currentNode.next != null) {
 				currentNode = currentNode.next;
 				
-			}
+			} // end of while loop
 			
 			return currentNode;
-		}
+		} // end of if/else
 		
 	} // end of getEnd
 	
@@ -69,11 +75,11 @@ public class PhoneBookList {
 			for (int currentIndex = 0; currentIndex < index; currentIndex++) {
 				currentNode = currentNode.next;
 				
-			}
+			} // end of for
 			
 			return currentNode;
 			
-		}
+		} // end of if/else
 		
 	} // end of getNode
 
@@ -86,7 +92,7 @@ public class PhoneBookList {
 			PhoneBookNode endNode = getEnd();
 			endNode.next = newNode;
 			
-		}
+		} // end of if/else
 		
 		this.length++;
 		
@@ -99,7 +105,7 @@ public class PhoneBookList {
 			
 			// return to calling method
 			return;	
-		} 
+		}  // end of if
 		
 		PhoneBookNode nextNode = getNode(index);
 		
@@ -117,7 +123,7 @@ public class PhoneBookList {
 			// set newMode at index
 			previousNode.next = newNode;
 
-		}
+		} // end of if/else
 		
 		newNode.next = nextNode;
 		this.length++;
@@ -138,11 +144,11 @@ public class PhoneBookList {
 				currentNode = currentNode.next;
 				index++;
 				
-			}
+			} // end of while
 			
 			add(newNode, index);
 			
-		}
+		} // end of if/else
 		
 	} // end of addAlphabetically
 	
@@ -166,7 +172,7 @@ public class PhoneBookList {
 			// move next reference to nextNode
 			previousNode.next = nextNode;
 			
-		}
+		} // end of if/else
 		
 		// orphan currentNode
 		currentNode.next = null;
@@ -224,8 +230,7 @@ public class PhoneBookList {
 					// nextNode
 					currentNode = nextNode;
 					
-				}
-				// this.printString();
+				} // end of if/else
 				
 			} // end of for loop 
 			
@@ -275,8 +280,7 @@ public class PhoneBookList {
 					// nextNode
 					currentNode = nextNode;
 					
-				}
-				// this.printString();
+				} // end of if/else
 				
 			} // end of for loop 
 			
@@ -297,7 +301,7 @@ public class PhoneBookList {
 			System.out.println();
 			currentNode = currentNode.next;
 			
-		}
+		} // end of for loop
 		System.out.println();
 		System.out.println();
 		
@@ -330,7 +334,7 @@ public class PhoneBookList {
 		} else {
 			System.out.println("Phone book entry not found. No entry to move.\n");
 			
-		}
+		} // end of if/else
 		
 	} // end of moveByID
 	
@@ -343,7 +347,7 @@ public class PhoneBookList {
 		} else {
 			System.out.println("Phone book entry not found. No entry to move.\n");
 			
-		}
+		} // end of if/else
 		
 	} // end of moveByIndex
 	
@@ -407,37 +411,37 @@ public class PhoneBookList {
 		if (firstName != null) {
 			node.setFirstName(firstName);
 			
-		}
+		} // end of if
 		
 		if (lastName != null) {
 			node.setLastName(lastName);
 			
-		}
+		} // end of if
 		
 		if (streetAddress != null) {
 			node.setStreetAddress(streetAddress);
 			
-		}
+		} // end of if
 		
 		if (city != null) {
 			node.setCity(city);
 			
-		}
+		} // end of if
 		
 		if (stateAbbrev != null) {
 			node.setStateAbbrev(stateAbbrev);
 			
-		}
+		} // end of if
 		
 		if (phoneAreaCode != null) {
 			node.setPhoneAreaCode(phoneAreaCode);
 			
-		}
+		} // end of if
 		
 		if (phoneNumber != null) {
 			node.setPhoneNumber(phoneNumber);
 			
-		}
+		} // end of if
 		
 	} // end of modifyNode
 
