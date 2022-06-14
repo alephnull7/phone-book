@@ -1,7 +1,7 @@
-// Class: CS 145
+// Programmer: Gregory Smith
 // Date: 05/13/2022
-// Assignment: Assignment 2 - Phone Book
-// Reference: Chapters 1-16, 
+// Program: Phone Book
+// Reference: Building Java Programs, 5th Edition: Chapters 1-16, 
 // https://abbreviations.yourdictionary.com/articles/state-abbrev.html
 //
 // Purpose: Define the data fields used in PhoneBookNode class, and associated methods 

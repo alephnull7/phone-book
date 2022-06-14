@@ -1,7 +1,7 @@
-// Class: CS 145
+// Programmer: Gregory Smith
 // Date: 05/13/2022
-// Assignment: Assignment 2 - Phone Book
-// Reference: Chapters 1-16
+// Program: Phone Book
+// Reference: Building Java Programs, 5th Edition: Chapters 1-16
 // Purpose: Define the node class used in PhoneBookList class, and associated methods 
 // IDE: Eclipse
 
